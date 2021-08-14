@@ -1,0 +1,24 @@
+https://drawpile.net/
+https://www.freescreenrecording.com/
+https://drive.google.com/drive/folders/1U738IA9ARJyrb9gK8l1Iev2lVNFBAvA8
+
+Мой адрес в skype: katsylo
+Email: katsylo@yahoo.com
+
+Для занятий идеально перед глазами иметь 2 экрана:
+один (компьютера или ноутбука) для электронной доски Drawpile,
+другой (компьютера, ноутбука, планшета или мобильника с большим экраном)
+для чтения электронных книг.
+
+Скачайте Drawpile здесь: https://drawpile.net/ и установите.
+
+Занятие можно записывать. Например, SimpleScreenRecorder в Linux и
+Free Cam в Windows (https://www.freescreenrecording.com/) запишет аудио
+и видео любого участка экрана. Аналогичные программы есть для Mac.
+
+Сайты для изучающих алгоритмы и программирование:
+http://codeforces.com/
+https://leetcode.com/
+
+Лекции Куликова по алгоритмам:
+https://drive.google.com/drive/folders/1U738IA9ARJyrb9gK8l1Iev2lVNFBAvA8?usp=sharing

@@ -181,7 +181,7 @@ prettyNum( ((first_digits * first_letters) + (second_digits * second_letters)  )
 **Задача 5:** а) В стране три города: Астрахань, Белозерск и Владимир. Из Астрахани в Белозерск ведeт 5 дорог, а из Белозерска во Владимир – 4 дороги. Сколькими способами можно проехать из Астрахани во Владимир? б) В стране построили город Гусь-Хрустальный и несколько новых дорог: две из Астрахани в Гусь-Хрустальный и две из Гуся-Хрустального во Владимир. Сколькими способами можно теперь проехать из Астрахани во Владимир?
 
 ```{r setup5,echo = FALSE}
-knitr::include_graphics("https://github.com/G-Orwel/PrepareToSDA/blob/main/%D0%9A%D0%BE%D0%BC%D0%B1%D0%B8%D0%BD%D0%B0%D1%82%D0%BE%D1%80%D0%B8%D0%BA%D0%B0/tech/image1.png")
+knitr::include_graphics("C:\\Users\\alexa\\Documents\\GitHub\\PrepareToSDA\\Комбинаторика\\tech\\image1.png")
 ```
 
 

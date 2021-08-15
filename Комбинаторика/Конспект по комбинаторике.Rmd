@@ -6,6 +6,7 @@ output: html_document
 
 ---
 
+
 ## Оглавление
 [1.Правило суммы](#sum_rule) <br /> 
 [2.Правило произведения](#product_rule)<br /> 
@@ -87,31 +88,92 @@ factorial(n) / (factorial(n-k) * factorial(k))
 
 **Задача 3:** Автобусные билеты имеют шестизначные номера, от 000000 до 999999. Сколько существует номеров а) все цифры которых четны? б) в которых любые две соседние цифры различны? в) все цифры которых различны? г) в которых есть не менее двух одинаковых цифр? д) содержащих цифру 7? е) в которых есть хотя бы одна четная цифра? ж) в которых ровно две одинаковые цифры? з) в которых цифры 1, 2, 3 встречаются ровно по одному разу?
 
-**Решение 3:** стандартная задача, размещения с повторениями / без повторений
+**Решение 3:** стандартная задача, размещения с повторениями / без повторений и др.
 
 ```{r setup3, include=T}
 all_digits <- length(c(0,1,2,3,4,5,6,7,8,9))
 even_digits <- length(c(0,2,4,6,8))
 slots <- nchar('000000')
 #справочно всего комбинация из всех цифр
-n <- slots
-k <- all_digits
+n <- all_digits
+k <- slots
 
-n^k
+prettyNum(n^k,big.mark=" ",scientific=FALSE)
 
 #а) все цифры которых четны?
-n <- slots
-k <- even_digits
+n <- even_digits
+k <- slots
 
-n^k
+prettyNum(n^k,big.mark=" ",scientific=FALSE)
 
 #б) в которых любые две соседние цифры различны?
-
+n <- all_digits
+k_1 <- slots-2
+k_2 <- slots-4
+prettyNum( (factorial(n) / factorial(n-k_2)) * n^k_1,big.mark=" ",scientific=FALSE)
 
 #в) все цифры которых различны
-n <- slots
-k <- all_digits
+n <- all_digits
+k <- slots
+prettyNum(factorial(n) / factorial(n-k) ,big.mark=" ",scientific=FALSE)
 
-factorial(n) / factorial(n-k) 
+#г) в которых есть не менее двух одинаковых цифр?
+same <- length(c(0==0,1==1,2==2,3==3,4==4,5==5,6==6,7==7,8==8, 9==9))
+
+n <- all_digits
+k <- slots-2
+prettyNum(n^k * same ,big.mark=" ",scientific=FALSE)
+
+#д) содержащих цифру 7?
+n <- all_digits
+k <- slots
+
+all_combination <- n^k
+without_seven <- (n-1)^k
+
+prettyNum(all_combination -  without_seven, big.mark=" ",scientific=FALSE)
+
+#е) в которых есть хотя бы одна четная цифра?
+n_1 <- all_digits
+k_1 <- slots - 1
+n_2 <- even_digits
+k_2 <- slots-5
+
+prettyNum(n_1^k_1 * n_2^k_2, big.mark=" ",scientific=FALSE)
+
+#ж) в которых ровно две одинаковые цифры? 
+same <- length(c(0==0,1==1,2==2,3==3,4==4,5==5,6==6,7==7,8==8, 9==9))
+
+n <- all_digits-1
+k <- slots-2
+prettyNum(n^k * same ,big.mark=" ",scientific=FALSE)
+
+#з) в которых цифры 1, 2, 3 встречаются ровно по одному разу?
+n <- all_digits-3
+k <- slots-3
+prettyNum(factorial(3) *  n^k ,big.mark=" ",scientific=FALSE)
 ```
+**Задача 4:** Автомобильные номера в одном регионе РФ состоят либо из 3 букв и 3 цифр, либо из 2 букв и 4 цифр, при этом порядок следования букв и цифр в номере фиксирован. Из букв используются не все, а только а, в, е, к, м, н, о, р, с, т, у, х. Какое максимальное число автомобилей может быть в одном регионе?
 
+**Решение 4:**  стандартная задача, размещения с повторениями и др.
+
+```{r setup4, include=T}
+all_digits <- length(c(0,1,2,3,4,5,6,7,8,9))
+all_letters <- length(c('a','в','е','к','м','н','о','р','с','т','у','х'))
+
+n_digits <- all_digits
+k_digits_first <- 3
+k_digits_second <- 4
+  
+n_letters <- all_letters
+k_letters_first <- 3
+k_letters_second <- 2
+
+first_digits <- n_digits^k_digits_first
+first_letters <- n_letters^k_letters_first
+
+second_digits <- n_digits^k_digits_second
+second_letters <- n_letters^k_letters_second
+
+prettyNum( ((first_digits * first_letters) + (second_digits * second_letters)  ),big.mark=" ",scientific=FALSE)
+```

@@ -9,7 +9,7 @@ output: html_document
 ## Оглавление
 [1.Правило суммы](#sum_rule) <br /> 
 [2.Правило произведения](#product_rule)<br /> 
-[3.Стандартные задачи](#regular_tasks)
+[3.Стандартные задачи](#regular_tasks)<br /> 
 
 ## Правило суммы <a name="sum_rule"></a>
 

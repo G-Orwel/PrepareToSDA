@@ -390,7 +390,7 @@ n^7&gt;k</code></pre>
 <pre class="r"><code>prettyNum(7,big.mark=&quot; &quot;,scientific=FALSE)  </code></pre>
 <pre><code>## [1] &quot;7&quot;</code></pre>
 <p><strong>Задача 10:</strong> а) Для передачи сигналов на флоте используют специальные сигнальные флаги определенных видов. На корабле имеется большое количество флагов каждого вида. На мачту можно вывесить последовательность из трех флагов. Сколько можно таким образом передать сигналов, если количество различных видов флагов равно 10? б) Какое количество разных видов флагов должно быть на корабле (флагов каждого вида при этом много), чтобы с их помощью можно было передать не менее 50 различных сигналов?</p>
-<p><strong>Решение 10:</strong> размещение</p>
+<p><strong>Решение 10:</strong> размещение с повторением</p>
 <pre class="r"><code>#а) Для передачи сигналов на флоте используют специальные сигнальные флаги определенных видов. На корабле имеется большое количество флагов каждого вида. На мачту можно вывесить последовательность из трех флагов. Сколько можно таким образом передать сигналов, если количество различных видов флагов равно 10?
 n &lt;- 10
 k &lt;- 3
@@ -403,6 +403,99 @@ prettyNum(n^k,big.mark=&quot; &quot;,scientific=FALSE)  </code></pre>
 <pre><code>## [1] TRUE</code></pre>
 <pre class="r"><code>prettyNum(4,big.mark=&quot; &quot;,scientific=FALSE)  </code></pre>
 <pre><code>## [1] &quot;4&quot;</code></pre>
+<p><strong>Задача 11:</strong> а) В заборе 20 досок, каждую надо покрасить в синий, зеленый или желтый цвет, причем соседние доски красятся в разные цвета. Сколькими способами это можно сделать? б) А если требуется еще, чтобы хоть одна из досок обязательно была синей?</p>
+<p><strong>Решение 11:</strong></p>
+<pre class="r"><code>#а) В заборе 20 досок, каждую надо покрасить в синий, зеленый или желтый цвет, причем соседние доски красятся в разные цвета. Сколькими способами это можно сделать?
+k &lt;- 20
+n &lt;- 3
+all_combination &lt;- n * (n-1)^(k-1)
+
+prettyNum(all_combination,big.mark=&quot; &quot;,scientific=FALSE)  </code></pre>
+<pre><code>## [1] &quot;1 572 864&quot;</code></pre>
+<pre class="r"><code>#б) А если требуется еще, чтобы хоть одна из досок обязательно была синей?
+prettyNum(all_combination-2,big.mark=&quot; &quot;,scientific=FALSE)  </code></pre>
+<pre><code>## [1] &quot;1 572 862&quot;</code></pre>
+<p><strong>Задача 12:</strong> а) Сколькими способами можно поставить на шахматную доску белую и черную ладьи так, чтобы они не били друг друга? б) Тот же вопрос для двух королей.</p>
+<p><strong>Решение 12:</strong></p>
+<pre class="r"><code>#а) Сколькими способами можно поставить на шахматную доску белую и черную ладьи так, чтобы они не били друг друга?
+desk &lt;- 8*8
+
+white_fig &lt;- desk
+black_fig &lt;- white_fig - 1
+all_variants_fig &lt;- 7 * 2
+
+prettyNum(white_fig * (black_fig - all_variants_fig), big.mark=&quot; &quot;,scientific=FALSE)  </code></pre>
+<pre><code>## [1] &quot;3 136&quot;</code></pre>
+<pre class="r"><code>#б) Тот же вопрос для двух королей
+corners &lt;- 4
+variants_corners &lt;- corners * (desk-corners)
+
+borders &lt;- 24
+variants_borders &lt;- borders * (desk-6)
+
+remain &lt;- desk - corners - borders
+variants_remain &lt;- remain * (desk-9)
+
+
+prettyNum(variants_corners + variants_borders + variants_remain, big.mark=&quot; &quot;,scientific=FALSE)  </code></pre>
+<pre><code>## [1] &quot;3 612&quot;</code></pre>
+<p><strong>Задача 13:</strong> Сколькими способами можно расставить на шахматной доске 8 различных ладей так, чтобы они не били друг друга?</p>
+<p><strong>Решение 13:</strong></p>
+<pre class="r"><code>n &lt;- 8
+
+prettyNum(factorial(n), big.mark=&quot; &quot;,scientific=FALSE)  </code></pre>
+<pre><code>## [1] &quot;40 320&quot;</code></pre>
+<p><strong>Задача 14:</strong> Сколькими способами можно расставить на шахматной доске 8 различных ладей так, чтобы они не били друг друга?</p>
+<p><strong>Решение 14:</strong> а) Сколько различных строк можно составить из 0 и 1, чтобы в каждой строке было 8 цифр? б) На столе 8 различных конфет. Сколькими способами можно съесть несколько из них? в) Сколькими способами можно распределить 8 вновь пришедших учеников по трем классам?</p>
+<pre class="r"><code>#а) Сколько различных строк можно составить из 0 и 1, чтобы в каждой строке было 8 цифр? 
+n &lt;- 2
+k &lt;- 8
+
+prettyNum(n^k, big.mark=&quot; &quot;,scientific=FALSE) </code></pre>
+<pre><code>## [1] &quot;256&quot;</code></pre>
+<pre class="r"><code>#б) На столе 8 различных конфет. Сколькими способами можно съесть несколько из них?
+n &lt;- 8
+factorial(n)</code></pre>
+<pre><code>## [1] 40320</code></pre>
+<pre class="r"><code>#в) Сколькими способами можно распределить 8 вновь пришедших учеников по трем классам?
+n &lt;- 3
+k &lt;- 8
+
+prettyNum(n^k, big.mark=&quot; &quot;,scientific=FALSE) </code></pre>
+<pre><code>## [1] &quot;6 561&quot;</code></pre>
+<p><strong>Задача 15:</strong> Меню в школьном буфете постоянно и состоит из n разных блюд. Петя хочет каждый день выбирать себе завтрак по-новому (за раз он может съесть от 0 до n разных блюд). а) Сколько дней ему удастся это делать? б) Сколько блюд он съест за это время?</p>
+<p><strong>Решение 15:</strong></p>
+<pre class="r"><code>#непоянтно как решать
+
+#а) Сколько дней ему удастся это делать?
+n &lt;- 6 #предположим, что 6 блюд
+factorial(6)</code></pre>
+<pre><code>## [1] 720</code></pre>
+<pre class="r"><code>#б) Сколько блюд он съест за это время?
+factorial(6)</code></pre>
+<pre><code>## [1] 720</code></pre>
+<p><strong>Задача 16:</strong> На полке стоят 5 книг. Сколькими способами можно выложить в стопку несколько из них (стопка может состоять и из одной книги)?</p>
+<p><strong>Решение 16:</strong></p>
+<pre class="r"><code>n &lt;- 5
+
+res_list &lt;- c()
+
+for (k in 1:5){
+  res &lt;- factorial(n) / factorial(n-k)
+  res_list &lt;- append(res_list, res)
+}
+
+prettyNum(sum(res_list), big.mark=&quot; &quot;, scientific=FALSE) </code></pre>
+<pre><code>## [1] &quot;325&quot;</code></pre>
+<p><strong>Задача 17:</strong> Сколькими способами можно покрасить квадрат 2 Ч 2, составленный из 4 квадратиков, если каждый квадратик надо покрасить в один из n цветов, и соседние (имеющие общую сторону) квадратики должны быть покрашены по-разному?</p>
+<p><strong>Решение 17:</strong></p>
+<pre class="r"><code>k &lt;- 4
+n &lt;- 4
+
+all_combination &lt;- n * (n-1)^(k-1)
+
+prettyNum(all_combination,big.mark=&quot; &quot;,scientific=FALSE)  </code></pre>
+<pre><code>## [1] &quot;108&quot;</code></pre>
 </div>
 
 

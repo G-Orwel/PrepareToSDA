@@ -173,7 +173,7 @@ pre code {
 
 <div id="оглавление" class="section level2">
 <h2>Оглавление</h2>
-<p><a href="#sum_rule">1.Правило суммы</a> <br /> <a href="#product_rule">2.Правило произведения</a><br /> <a href="#regular_tasks">3.Стандартные задачи</a><br /> <a href="#solve_tasks">4.Решение задч</a><br /></p>
+<p><a href="#sum_rule">1.Правило суммы</a> <br /> <a href="#product_rule">2.Правило произведения</a><br /> <a href="#regular_tasks">3.Стандартные задачи</a><br /> <a href="#solve_tasks">4.Решение задач листка 6</a><br /> <a href="#solve_other_tasks">Решение прочих задач</a><br /></p>
 </div>
 <div id="правило-суммы" class="section level2">
 <h2>Правило суммы <a name="sum_rule"></a></h2>
@@ -223,8 +223,8 @@ pre code {
 </table>
 <p>Коммент: размещения и сочетания на первый взгляд похожи. Но в сочетаниях нам нет дела до порядка - это одни и теже комбинации, а в размещении есть.</p>
 </div>
-<div id="решение-задач" class="section level2">
-<h2>Решение задач <a name="solve_tasks"></a></h2>
+<div id="решение-задач-листка-6" class="section level2">
+<h2>Решение задач листка 6 <a name="solve_tasks"></a></h2>
 <p><strong>Задача 1:</strong> В магазине имеются 3 красных, 5 зеленых и 4 голубых шапки, а также шарфы трех цветов: 7 красных, 2 зеленых и 5 голубых. а) Сколькими способами Маша может выбрать себе шапку и шарф? б) А сколькими способами можно выбрать шапку и шарф одного цвета? в) Разных цветов?</p>
 <p><strong>Решение 1:</strong> по правилу суммы и произведения</p>
 <pre class="r"><code>red_hat &lt;- 3
@@ -465,15 +465,15 @@ prettyNum(n^k, big.mark=&quot; &quot;,scientific=FALSE) </code></pre>
 <pre><code>## [1] &quot;6 561&quot;</code></pre>
 <p><strong>Задача 15:</strong> Меню в школьном буфете постоянно и состоит из n разных блюд. Петя хочет каждый день выбирать себе завтрак по-новому (за раз он может съесть от 0 до n разных блюд). а) Сколько дней ему удастся это делать? б) Сколько блюд он съест за это время?</p>
 <p><strong>Решение 15:</strong></p>
-<pre class="r"><code>#непоянтно как решать
-
-#а) Сколько дней ему удастся это делать?
+<pre class="r"><code>#а) Сколько дней ему удастся это делать?
 n &lt;- 6 #предположим, что 6 блюд
-factorial(6)</code></pre>
-<pre><code>## [1] 720</code></pre>
+
+prettyNum(2^n, big.mark=&quot; &quot;,scientific=FALSE) </code></pre>
+<pre><code>## [1] &quot;64&quot;</code></pre>
 <pre class="r"><code>#б) Сколько блюд он съест за это время?
-factorial(6)</code></pre>
-<pre><code>## [1] 720</code></pre>
+
+prettyNum(n * 2^(n-1), big.mark=&quot; &quot;,scientific=FALSE) </code></pre>
+<pre><code>## [1] &quot;192&quot;</code></pre>
 <p><strong>Задача 16:</strong> На полке стоят 5 книг. Сколькими способами можно выложить в стопку несколько из них (стопка может состоять и из одной книги)?</p>
 <p><strong>Решение 16:</strong></p>
 <pre class="r"><code>n &lt;- 5
@@ -487,7 +487,7 @@ for (k in 1:5){
 
 prettyNum(sum(res_list), big.mark=&quot; &quot;, scientific=FALSE) </code></pre>
 <pre><code>## [1] &quot;325&quot;</code></pre>
-<p><strong>Задача 17:</strong> Сколькими способами можно покрасить квадрат 2 Ч 2, составленный из 4 квадратиков, если каждый квадратик надо покрасить в один из n цветов, и соседние (имеющие общую сторону) квадратики должны быть покрашены по-разному?</p>
+<p><strong>Задача 17:</strong> Сколькими способами можно покрасить квадрат 2 x 2, составленный из 4 квадратиков, если каждый квадратик надо покрасить в один из n цветов, и соседние (имеющие общую сторону) квадратики должны быть покрашены по-разному?</p>
 <p><strong>Решение 17:</strong></p>
 <pre class="r"><code>k &lt;- 4
 n &lt;- 4
@@ -518,6 +518,19 @@ prettyNum(2^15, big.mark=&quot; &quot;,scientific=FALSE)  </code></pre>
 <pre><code>## [1] &quot;32 768&quot;</code></pre>
 <p><strong>Задача 20:</strong> В квадратной таблице из 9 * 9 клеток отмечены 9 клеток так, как показано на рисунке справа. Сколькими путями можно из левой нижней клетки попасть в правую верхнюю, двигаясь только по неотмеченным клеткам вверх или вправо?</p>
 <p><strong>Решение 20:</strong> <a href="https://www.problems.ru/view_problem_details_new.php?id=79614">Нужно заполнять таблицу, смотри здесь</a></p>
+</div>
+<div id="решение-прочих-задач" class="section level2">
+<h2>Решение прочих задач <a name="solve_other_tasks"></a></h2>
+<p><strong>Задача 1:</strong> Сколькими способами по четырем различным урнам можно разложить 20 одинаковых шаров?</p>
+<p><strong>Решение 1:</strong> x1+x2+x3+x4 = 20, сочетания с повторениями</p>
+<pre class="r"><code>n &lt;-  4
+k &lt;- 20
+
+
+solve &lt;- factorial(n+k-1) / (factorial(n-1) * factorial(k))
+
+prettyNum(solve, big.mark=&quot; &quot;,scientific=FALSE) </code></pre>
+<pre><code>## [1] &quot;1 771&quot;</code></pre>
 </div>
 
 

@@ -12,6 +12,7 @@ output: html_document
 [3.Стандартные задачи](#regular_tasks)<br /> 
 [4.Решение задач. Комбинаторика](#solve_tasks)<br /> 
 [5.Решение задач. Сравнение количеств](#solve_tasks2)<br /> 
+[6.Решение задач. Подсчёты с кратностью](#solve_tasks3)<br /> 
 [Решение прочих задач](#solve_other_tasks)<br />
 
 ## 1. Правило суммы <a name="sum_rule"></a>
@@ -692,6 +693,179 @@ prettyNum(nature_v, big.mark=" ",scientific=FALSE)
 
 ```
 
+## 6.Решение задач. Подсчёты с кратностью <a name="solve_tasks3"></a>
+**Задача 1:** а) Сколькими способами можно выбрать четырех человек в классе из 20 человек для участия в школьном спектакле на роли Медведя, Волка, Лисы и Зайца? б) А сколькими способами можно выбрать в этом классе четырех дежурных? в) А выбрать старосту, двух дежурных и ответственного за проездные билеты, если все это должны быть разные люди?
+
+**Решение 1** 
+```{r crat_1, include=T}
+#а) Сколькими способами можно выбрать четырех человек в классе из 20 человек для участия в школьном спектакле на роли Медведя, Волка, Лисы и Зайца? 
+n <- 20
+k <- 4
+
+prettyNum(factorial(n) / factorial(n-k), big.mark=" ",scientific=FALSE) 
+
+#б) А сколькими способами можно выбрать в этом классе четырех дежурных?
+prettyNum(factorial(n) / (factorial(n-k) * factorial(k)), big.mark=" ",scientific=FALSE) 
+
+#в) А выбрать старосту, двух дежурных и ответственного за проездные билеты, если все это должны быть разные люди?
+x <- factorial(19) / (factorial(19-2) * factorial(2))
+prettyNum(20 * x * 17, big.mark=" ",scientific=FALSE) 
+```
+
+**Задача 2:** а) Сколькими способами в заборе из 9 досок можно покрасить 4 доски в красный цвет и 5 в синий? б) А покрасить 4 доски в красный цвет и 5 в синий в заборе из 12 досок?
+
+**Решение 2** 
+```{r crat_2, include=T}
+# а) Сколькими способами в заборе из 9 досок можно покрасить 4 доски в красный цвет и 5 в синий? 
+n <- 9
+n1 <- 4
+n2 <- 5
+
+prettyNum(factorial(n) / (factorial(n1) * factorial(n2)), big.mark=" ",scientific=FALSE) 
+
+n <- 12
+n1 <- 4
+n2 <- 5
+n3 <- 3
+
+prettyNum(factorial(n) / (factorial(n1) * factorial(n2) * factorial(n3)), big.mark=" ",scientific=FALSE) 
+```
+
+**Задача 3:** Сколькими способами из двух взрослых и десяти школьников можно выбрать 4 человека для приготовления обеда так, чтобы среди них был хотя бы один взрослый?
+
+**Решение 3** 
+```{r crat_3, include=T}
+n <- 10
+k <- 3
+
+prettyNum(2  * (factorial(n) / (factorial(n-k) * factorial(k))), big.mark=" ",scientific=FALSE) 
+```
+
+**Задача 4:** В магазине имеются в продаже рубашки семи фасонов и двенадцать видов галстуков. а) Сколькими способами можно купить три рубашки трех разных фасонов и два разных галстука? б) А пять рубашек трех разных фасонов?
+
+**Решение 4** 
+```{r crat_4, include=T}
+#а) Сколькими способами можно купить три рубашки трех разных фасонов и два разных галстука?
+n1 <- 3
+k1 <- 7
+
+n2 <- 2
+k2 <- 12
+
+x1 <- factorial(n1+k1-1) / (factorial(n1) * factorial(k1-1))
+x2 <- factorial(n2+k2-1) / (factorial(n2) * factorial(k2-1))
+
+prettyNum(x1 + x2, big.mark=" ",scientific=FALSE) 
+
+#б) А пять рубашек трех разных фасонов?
+n1 <- 5
+k1 <- 3
+
+prettyNum(factorial(n1+k1-1) / (factorial(n1) * factorial(k1-1)), big.mark=" ",scientific=FALSE) 
+```
+
+**Задача 5:** а) Сколькими способами можно расселить 9 приезжих в двухместный, трехместный и четырехместный номера гостиницы? б) А расселить 10 человек по пяти двухместным номерам?
+
+**Решение 5** 
+```{r crat_5, include=T}
+#а) Сколькими способами можно расселить 9 приезжих в двухместный, трехместный и четырехместный номера гостиницы?
+n1 <- 9
+k1 <- 2
+
+n2 <- n1-k1
+k2 <- 3
+
+n3 <- n2-k2
+k3 <- 4
+
+x <- (factorial(n1) / (factorial(n1-k1) * factorial(k1))) * (factorial(n2) / (factorial(n2-k2) * factorial(k2))) * (factorial(n3) / (factorial(n3-k3) * factorial(k3)))
+prettyNum(x, big.mark=" ",scientific=FALSE) 
+
+# б) А расселить 10 человек по пяти двухместным номерам?
+n1 <- 10
+k <- 2
+n2 <- n1 - k
+n3 <- n2 - k
+n4 <- n3 - k
+n5 <- n4 - k
+
+x <- (factorial(n1) / (factorial(n1-k) * factorial(k))) *  (factorial(n2) / (factorial(n2-k) * factorial(k))) * (factorial(n3) / (factorial(n3-k) * factorial(k))) *  (factorial(n4) / (factorial(n4-k) * factorial(k))) * (factorial(n5) / (factorial(n5-k) * factorial(k)))
+prettyNum(x, big.mark=" ",scientific=FALSE) 
+```
+
+**Задача 6:** У Пети 7 различных открыток, а у Васи — 5. Сколькими способами они могут обменять три открытки одного на три открытки другого?
+
+**Решение 6** 
+```{r crat_6, include=T}
+n1 <- 7
+n2 <- 5
+
+k <- 3
+
+x <- (factorial(n1) / (factorial(n1-k) * factorial(k))) * (factorial(n2) / (factorial(n2-k) * factorial(k)))
+
+prettyNum(x, big.mark=" ",scientific=FALSE) 
+```
+
+**Задача 7:** а) Сколькими способами можно из 10 спортсменов выбрать 5 для участия в соревнованиях? б) А разделить их на две команды по 5 человек для игры в футбол?
+
+**Решение 7** 
+```{r crat_7, include=T}
+n <- 10
+k <- 5
+
+prettyNum(factorial(n) / (factorial(n-k) * factorial(k)), big.mark=" ",scientific=FALSE) 
+
+prettyNum((factorial(n) / (factorial(n-k) * factorial(k))) / 2, big.mark=" ",scientific=FALSE) 
+```
+
+**Задача 8:** Автобусные билеты имеют шестизначные номера, от 000000 до 999999. Сколько существует номеров, в которых все цифры различны и идут в возрастающем порядке?
+
+**Решение 8** 
+```{r crat_8, include=T}
+n <- 10
+k <- 6
+
+prettyNum((factorial(n) / (factorial(n-k) * factorial(k))) / 2, big.mark=" ",scientific=FALSE) 
+```
+
+**Задача 9:** Сколько разных слов (не обязательно осмысленных) можно получить переставляя буквы в словах а) ТОРГ; б) НАПИТОК; в) ВОСТОРГ; г) БАРАБАН; д) |АА{:z: : А} 5 раз |ББ{:z: : Б} 7 раз?
+
+**Решение 9** 
+```{r crat_9, include=T}
+#а) ТОРГ
+n <- nchar('ТОРГ')
+factorial(n)
+
+#б) НАПИТОК
+n <- nchar('НАПИТОК')
+factorial(n)
+
+#в) ВОСТОРГ
+n <- nchar('ВОСТОРГ')
+factorial(n)
+
+#г) БАРАБАН
+n <- nchar('БАРАБАН')
+factorial(n)
+
+#д) |АА{:z: : А} 5 раз |ББ{:z: : Б} 7 раз
+prettyNum(factorial(13) / (factorial(5) * factorial(7)), big.mark=" ",scientific=FALSE) 
+```
+
+**Задача 10:** а) Сколькими способами можно выбрать 4 карты одинаковой масти из колоды в 52 карты? б) А 9 карт одинаковой масти? в) Объясните совпадение результатов
+
+**Решение 10** 
+```{r crat_10, include=T}
+n <- 13
+k1 <- 4
+prettyNum(4 * (factorial(n) / (factorial(n-k1) * factorial(k1))), big.mark=" ",scientific=FALSE) 
+
+
+k2 <- 9
+prettyNum(4 * (factorial(n) / (factorial(n-k2) * factorial(k2))), big.mark=" ",scientific=FALSE) 
+```
+
 ## Решение прочих задач <a name="solve_other_tasks"></a>
 **Задача 1:** Сколькими способами по четырем различным урнам можно разложить 20 одинаковых шаров?
 
@@ -706,5 +880,5 @@ solve <- factorial(n+k-1) / (factorial(n) * factorial(k-1))
 prettyNum(solve, big.mark=" ",scientific=FALSE) 
 ```
 
-factorial(8) / (factorial(8-3) * factorial(3))
+
 

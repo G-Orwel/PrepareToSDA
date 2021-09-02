@@ -842,6 +842,117 @@ prettyNum(4 * (factorial(n) / (factorial(n-k1) * factorial(k1))), big.mark=&quot
 <pre class="r"><code>k2 &lt;- 9
 prettyNum(4 * (factorial(n) / (factorial(n-k2) * factorial(k2))), big.mark=&quot; &quot;,scientific=FALSE) </code></pre>
 <pre><code>## [1] &quot;2 860&quot;</code></pre>
+<p><strong>Задача 11:</strong> a) Сколько существует различных последовательностей из 4 нулей и 7 единиц? б) Найдите число решений уравнения a + b + c + d + e + f = 10; если a; b; c; d; e; f могут принимать значения только 1 или 2.</p>
+<p><strong>Решение 11</strong></p>
+<pre class="r"><code>#a) Сколько существует различных последовательностей из 4 нулей и 7 единиц?
+#Не уверен
+prettyNum(2^4 * 3, big.mark=&quot; &quot;,scientific=FALSE) </code></pre>
+<pre><code>## [1] &quot;48&quot;</code></pre>
+<pre class="r"><code>#Не понятно
+#б) Найдите число решений уравнения a + b + c + d + e + f = 10; если a; b; c; d; e; f могут принимать значения только 1 или 2.</code></pre>
+<p><strong>Задача 12:</strong> Сколько решений имеет уравнение x + y + z + t = 9 а) в целых неотрицательных числах; б) в натуральных числах?</p>
+<p><strong>Решение 12</strong></p>
+<pre class="r"><code>n &lt;- 9
+k &lt;- 4
+
+solve &lt;- factorial(n+k-1) / (factorial(n) * factorial(k-1))
+
+prettyNum(solve, big.mark=&quot; &quot;,scientific=FALSE) </code></pre>
+<pre><code>## [1] &quot;220&quot;</code></pre>
+<pre class="r"><code>n &lt;- n - k
+
+solve &lt;- factorial(n+k-1) / (factorial(n) * factorial(k-1))
+
+prettyNum(solve, big.mark=&quot; &quot;,scientific=FALSE) </code></pre>
+<pre><code>## [1] &quot;56&quot;</code></pre>
+<p><strong>Задача 13:</strong> Переплетчик должен переплести 12 одинаковых книг в красный, синий или зелёный переплёты. Сколькими способами он может это сделать? (Не обязательно использовать все цвета.)</p>
+<p><strong>Решение 13</strong></p>
+<pre class="r"><code>n &lt;- 3
+k &lt;- 12
+
+solve &lt;- factorial(n+k-1) / (factorial(n-1) * factorial(k))
+
+prettyNum(solve, big.mark=&quot; &quot;,scientific=FALSE) </code></pre>
+<pre><code>## [1] &quot;91&quot;</code></pre>
+<p><strong>Задача 14:</strong> Фабрика игрушек выпускает пирамидки, все грани которых — правильные равносторонние треугольники. Далее каждая из граней раскрашивается в один из нескольких цветов, причем разные грани окрашиваются в разные цвета. а) Сколько различных видов пирамидок одинакового размера может выпустить фабрика, если для окрашивания пирамидок имеется 4 различных краски? б) А если красок 10?</p>
+<p><strong>Решение 14</strong></p>
+<pre class="r"><code>#а) Сколько различных видов пирамидок одинакового размера может выпустить фабрика, если для окрашивания пирамидок имеется 4 различных краски?
+prettyNum(factorial(4), big.mark=&quot; &quot;,scientific=FALSE) </code></pre>
+<pre><code>## [1] &quot;24&quot;</code></pre>
+<pre class="r"><code>n &lt;- 10
+k &lt;- 4
+
+#б) А если красок 10?
+prettyNum(factorial(n) / (factorial(n-k) * factorial(k)), big.mark=&quot; &quot;,scientific=FALSE) </code></pre>
+<pre><code>## [1] &quot;210&quot;</code></pre>
+<p><strong>Задача 15:</strong> На гранях игрального кубика написаны числа от 1 до 6, каждое ровно по разу. Сколько существует различных игральных кубиков, если считать различными два кубика, которые нельзя спутать, как ни переворачивай?</p>
+<p><strong>Решение 15</strong></p>
+<pre class="r"><code>factorial(6)</code></pre>
+<pre><code>## [1] 720</code></pre>
+<p><strong>Задача 16:</strong> У мамы есть 10 разных конфет. Сколькими способами она может раздать некоторые из них двум детям? (Она может раздать все конфеты, а может не дать и ни одной.)</p>
+<p><strong>Решение 16</strong></p>
+<pre class="r"><code>n &lt;- 2
+k &lt;- 10
+
+solve1 &lt;- factorial(n+k-1) / (factorial(n-1) * factorial(k))
+
+prettyNum(solve1, big.mark=&quot; &quot;,scientific=FALSE) </code></pre>
+<pre><code>## [1] &quot;11&quot;</code></pre>
+<p><strong>Задача 17:</strong> На окружности отмечено 10 точек. Сколько существует многоугольников с вершинами в этих точках?</p>
+<p><strong>Решение 17</strong></p>
+<pre class="r"><code>#Если речь про треуголник
+n &lt;- 10
+k &lt;- 3
+
+prettyNum(factorial(n) / (factorial(n-k) * factorial(k)), big.mark=&quot; &quot;,scientific=FALSE) </code></pre>
+<pre><code>## [1] &quot;120&quot;</code></pre>
+<p><strong>Задача 18:</strong> а) Сколькими способами можно разложить 10 различных шаров по 4 цветным коробкам? б) А 10 одинаковых шаров по 4 цветным коробкам?</p>
+<p><strong>Решение 18</strong></p>
+<pre class="r"><code>#а) Сколькими способами можно разложить 10 различных шаров по 4 цветным коробкам?
+prettyNum(4^10, big.mark=&quot; &quot;,scientific=FALSE) </code></pre>
+<pre><code>## [1] &quot;1 048 576&quot;</code></pre>
+<pre class="r"><code>#б) А 10 одинаковых шаров по 4 цветным коробкам?
+n &lt;- 4
+k &lt;- 10
+
+solve1 &lt;- factorial(n+k-1) / (factorial(n-1) * factorial(k))
+
+prettyNum(solve1, big.mark=&quot; &quot;,scientific=FALSE) </code></pre>
+<pre><code>## [1] &quot;286&quot;</code></pre>
+<p><strong>Задача 19:</strong> В волейбольной секции 24 спортсмена. Сколькими способами их можно разделить на 4 команды по 6 спортсменов в каждой для проведения тренировочного турнира?</p>
+<p><strong>Решение 19</strong></p>
+<pre class="r"><code>#Не понятно почему именно так
+n &lt;- 24
+k &lt;- 6
+z &lt;- 4
+
+prettyNum(factorial(n) / (factorial(4) * (factorial(k))^z) , big.mark=&quot; &quot;,scientific=FALSE) </code></pre>
+<pre><code>## [1] &quot;96 197 645 544&quot;</code></pre>
+<p><strong>Задача 20:</strong> У Пети имеется набор из 24 кубиков, окрашенных в 4 цвета: красный, синий, желтый и зеленый, при этом кубиков каждого цвета поровну. Сколько различных стенок 4 * 6 он может из них построить, если а) известно, какая сторона стенки является передней; б) не известно, какая сторона стенки передняя, а какая задняя?</p>
+<p><strong>Решение 20</strong></p>
+<pre class="r"><code>#а) известно, какая сторона стенки является передней
+n &lt;- 24
+n1 &lt;- 6
+n2 &lt;- 6
+n3 &lt;- 6
+n4 &lt;- 6
+
+prettyNum(factorial(n) / (factorial(n1) * factorial(n2) * factorial(n3) * factorial(n4)) , big.mark=&quot; &quot;,scientific=FALSE) </code></pre>
+<pre><code>## [1] &quot;2 308 743 493 056&quot;</code></pre>
+<pre class="r"><code>#б) не известно, какая сторона стенки передняя, а какая задняя?
+n &lt;- 24 / 2
+k &lt;- 6 / 2
+
+x1 &lt;- factorial(n) / (factorial(n-k) * factorial(k))
+n &lt;- 3
+x2 &lt;- factorial(n) / (factorial(n-k) * factorial(k))
+n &lt;- 3
+x3 &lt;- factorial(n) / (factorial(n-k) * factorial(k))
+n &lt;- 3
+x4 &lt;- factorial(n) / (factorial(n-k) * factorial(k))
+
+prettyNum(x1 * x2 * x3 * x4, big.mark=&quot; &quot;,scientific=FALSE) </code></pre>
+<pre><code>## [1] &quot;220&quot;</code></pre>
 </div>
 <div id="решение-прочих-задач" class="section level2">
 <h2>Решение прочих задач <a name="solve_other_tasks"></a></h2>
@@ -849,7 +960,6 @@ prettyNum(4 * (factorial(n) / (factorial(n-k2) * factorial(k2))), big.mark=&quot
 <p><strong>Решение 1:</strong> x1+x2+x3+x4 = 20, сочетания с повторениями</p>
 <pre class="r"><code>n &lt;-  20
 k &lt;- 4
-
 
 solve &lt;- factorial(n+k-1) / (factorial(n) * factorial(k-1))
 

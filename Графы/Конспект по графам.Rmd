@@ -7,10 +7,10 @@ output: html_document
 ---
 
 ## Оглавление
-[1.Правило суммы](#sum_rule) <br /> 
+[1.Решение задач](#task) <br /> 
 
-## 3. Стандартные задачи <a name="regular_tasks"></a>
+## 1. Решение задач <a name="task"></a>
 
-```{r echo = FALSE, results='asis'}
+```{r echo = FALSE, include=T}
 
 ```

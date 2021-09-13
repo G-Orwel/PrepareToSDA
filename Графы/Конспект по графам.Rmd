@@ -1,0 +1,16 @@
+---
+title: "Конспект по графам"
+author: "Alexander Botvin"
+date: "13 09 2021"
+output: html_document
+
+---
+
+## Оглавление
+[1.Правило суммы](#sum_rule) <br /> 
+
+## 3. Стандартные задачи <a name="regular_tasks"></a>
+
+```{r echo = FALSE, results='asis'}
+
+```
